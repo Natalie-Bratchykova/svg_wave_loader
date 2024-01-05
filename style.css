@@ -1,0 +1,138 @@
+body {
+  background-color: rgb(41, 17, 60);
+}
+
+.loader__section {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 800px;
+  text-align: center;
+  font-size: 1.3em;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: yellow;
+}
+.loader__titles {
+  text-align: center;
+}
+.loader__title {
+  font-size: 4.4vw;
+  margin-bottom: 1vw;
+}
+.loader__desc {
+  font-size: 2.2vw;
+  margin-top: 0;
+}
+
+/* style svg's rectangles */
+rect {
+  transform-origin: center;
+  border-radius: 0.2vw;
+  animation: doScale 2.2s linear infinite;
+}
+rect:nth-child(1) {
+  fill: #9f801a;
+  animation-delay: 0;
+}
+rect:nth-child(2) {
+  fill: #ad931e;
+  animation-delay: 0.2s;
+}
+rect:nth-child(3) {
+  fill: #b38e20;
+  animation-delay: 0.5s;
+}
+rect:nth-child(4) {
+  fill: #b7a822;
+  animation-delay: 0.7s;
+}
+rect:nth-child(5) {
+  fill: #b8a422;
+  animation-delay: 1s;
+}
+rect:nth-child(6) {
+  fill: #b48521;
+  animation-delay: 1.2s;
+}
+rect:nth-child(7) {
+  fill: #af831e;
+  animation-delay: 1.4s;
+}
+rect:nth-child(8) {
+  fill: #a46b1c;
+  animation-delay: 1.6s;
+}
+rect:nth-child(9) {
+  fill: #965917;
+  animation-delay: 1.8s;
+}
+rect:nth-child(10) {
+  fill: #885112;
+  animation-delay: 2s;
+}
+rect:nth-child(11) {
+  fill: #884b12;
+  animation-delay: 2.2s;
+}
+
+@keyframes doScale {
+  from {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0.2);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+/* query for disabling animation because some users can 
+prefer animation redunce
+*/
+
+@media (prefers-reduced-motion: reduce) {
+  rect {
+    animation: none;
+  }
+}
+
+/* style progress bar */
+progress {
+  height: 1.5vw;
+  width: 20vw;
+  border-radius: 0.6vw;
+  border: none;
+  background: #3d3d39;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* for Chrome */
+
+progress::-webkit-progress-value {
+  background: yellow;
+  border-radius: 0.6vw;
+}
+
+progress::-webkit-progress-bar {
+  border-radius: 0.6vw;
+  background: #3d3d39;
+  /* background: linear-gradient(to right, #128688 0%, #4db3ff 100%); */
+}
+
+/* for Mozilla */
+/* for -moz- we have only 1 pseudo class that wil 
+have the same effect as -webkit-
+
+NOTE: it's a good prectise to avoid  writing rules for 
+selectors with different vendors in the same line, because it
+can break the style for 1 pf them
+
+NOTE: it's much better to write 2 identical rules in such situation
+*/
+
+progress::-moz-progress-bar{
+    background: yellow;
+    border-radius: 0.6vw; 
+}
